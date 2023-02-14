@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
 
     def _create_user(self, email, password, **extra_fields):
         """
-        Create and save a user with the given username, email, and password.
+        Создайте и сохраните пользователя с указанным именем пользователя, электронной почтой и паролем.
         """
         if not email:
             raise ValueError('The given email must be set')
@@ -77,7 +77,7 @@ class User(AbstractUser):
         help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
         validators=[username_validator],
         error_messages={
-            'unique': _("A user with that username already exists."),
+            'unique': _("Пользователь с таким именем уже существует."),
         },
     )
     is_active = models.BooleanField(
@@ -271,7 +271,7 @@ class ConfirmEmailToken(models.Model):
         verbose_name=_("When was this token generated")
     )
 
-    # Key field, though it is not the primary key of the model
+    # Ключевое поле, хотя оно и не является первичным ключом модели
     key = models.CharField(
         _("Key"),
         max_length=64,
